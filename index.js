@@ -54,3 +54,6 @@ function mark(ev) {
     return (turn = player2);
   }
 }
+teste;
+dwldm;
+dkwsmd;
