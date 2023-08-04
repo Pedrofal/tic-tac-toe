@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  margin: 2rem;
+  font-family: sans-serif;
+}
+
+#players {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 2rem;
+}
+
+#players > label {
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+.container {
+  position: absolute;
+  top: 0;
+  background-image: url("https://img.freepik.com/premium-photo/image-colorful-galaxy-sky-generative-ai_791316-9864.jpg?w=2000");
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#tabuleiro {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-areas: "box1 box2 bo3" "box4 box5 box6" "box7 box8 box9";
+
+  font-size: 1rem bold;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.7px);
+  -webkit-backdrop-filter: blur(13.7px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#submit {
+  font-family: sans-serif, bold;
+  font-weight: 600;
+  height: 2rem;
+  width: 5rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+}
+
+.box {
+  height: 10rem;
+  width: 10rem;
+  font-size: 5rem;
+  font-family: sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box:hover {
+  box-shadow: 0 0 10rem #fff;
+  text-shadow: 0 0 10rem #ffffff;
+  transition: 0.7s;
+  cursor: pointer;
+  border: 0rem;
+}
+
+.boxClear {
+  height: 10rem;
+  width: 10rem;
+  font-size: 5rem;
+  font-family: sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.boxClear:hover {
+  box-shadow: 0;
+  text-shadow: 0;
+}
+
+.box1 {
+  grid-area: box1;
+}
+.box2 {
+  grid-area: box2;
+}
+.box3 {
+  grid-area: box3;
+}
+.box4 {
+  grid-area: box4;
+}
+.box5 {
+  grid-area: box5;
+}
+.box6 {
+  grid-area: box6;
+}
+.box7 {
+  grid-area: box7;
+}
+.box8 {
+  grid-area: box8;
+}
+.box9 {
+  grid-area: box9;
+}
+
+#box1,
+#box2,
+#box4,
+#box5 {
+  border-bottom: solid 0.3rem black;
+  border-right: solid 0.3rem black;
+}
+
+#box3,
+#box6 {
+  border-bottom: solid 0.3rem black;
+}
+#box7,
+#box8 {
+  border-right: solid 0.3rem black;
+}
