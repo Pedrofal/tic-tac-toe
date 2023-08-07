@@ -26,34 +26,29 @@ let box9 = document
   .getElementById("box9")
   .addEventListener("click", mark, false);
 
-let registPlayers = document
+let player1 = document.getElementById("player1").value;
+let player2 = document.getElementById("player2").value;
+let turnPlayer = document.getElementById("turnPlayer");
+let button = document
   .getElementById("submit")
-  .addEventListener("click", registerPlayers(), false);
+  .addEventListener("click", startGame);
 
-function registerPlayers(ev) {
-  let player1 = document.getElementById("player1").value;
-  let player2 = document.getElementById("player2").value;
-  return console.log(player1, player2);
+function startGame() {
+  turnPlayer.innerText(` Turn: ${player1}`);
 }
+
 function mark(ev) {
   let target = ev.currentTarget;
-  let turn = player1;
 
-  if (turn === player1) {
+  if (turnPlayer === player1) {
     target.innerText = "X";
     target.classList.add("boxClear");
     target.classList.remove("box");
     target.removeEventListener("click", mark);
-  } else {
+  } else if (turnPlayer === player2) {
     target.innerText = "O";
     target.classList.add("boxClear");
     target.classList.remove("box");
     target.removeEventListener("click", mark);
   }
-  if (turn === player1) {
-    return (turn = player2);
-  }
 }
-teste;
-dwldm;
-dkwsmd;
