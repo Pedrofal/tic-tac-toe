@@ -45,7 +45,7 @@ h1 {
   grid-template-areas: "box1 box2 bo3" "box4 box5 box6" "box7 box8 box9";
 
   font-size: 1rem bold;
-  /* From https://css.glass */
+  
   background: rgba(255, 255, 255, 0.17);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -144,4 +144,9 @@ h1 {
 #box7,
 #box8 {
   border-right: solid 0.3rem black;
+}
+
+#turnPlayer{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
