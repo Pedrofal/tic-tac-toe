@@ -119,8 +119,8 @@ function resetGame() {
     
   });
   
-  document.getElementById("player1").value = "";
-  document.getElementById("player2").value = "";
+  document.getElementById("player1").value = null
+  document.getElementById("player2").value = null
   turnPlayer.innerText = "";
  startGame()
  
