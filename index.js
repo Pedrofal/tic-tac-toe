@@ -12,7 +12,7 @@ const board = [
   [null, null, null],
 ];
 
-let gameOver = false; // Variável para rastrear o estado do jogo
+let gameOver = false; 
 
 function isGameOver() {
   return gameOver;
@@ -21,6 +21,10 @@ function isGameOver() {
 function startGame() {
   player1 = document.getElementById("player1").value;
   player2 = document.getElementById("player2").value;
+  if (player1.trim() === "" || player2.trim() === "") {
+    alert("Please enter the names of both players before starting the game.");
+    return;
+  }
   currentPlayer = player1;
 
   boxes.forEach((box, index) => {
@@ -32,7 +36,7 @@ function startGame() {
 
 function mark(index) {
   if (isGameOver()) {
-    return; // O jogo já terminou, não faça nada
+    return; 
   }
 
   const box = boxes[index];
@@ -48,19 +52,19 @@ function mark(index) {
     board[row][col] = currentPlayer;
 
     if (checkWinner(currentPlayer, row, col)) {
-      // Exibir o último clique antes do popup
+      
       turnPlayer.innerText = `Winner: ${currentPlayer}`;
-      // Aguardar por um breve momento antes de exibir o popup
+      
       setTimeout(() => {
-        gameOver = true; // Define o estado do jogo para terminado
+        gameOver = true; 
         boxes.forEach((box, index) => {
           box.removeEventListener("click", () => mark(index));
         });
-        // Exibir um popup com o nome do jogador vencedor
+        
         const winner = currentPlayer;
         const confirmation = window.confirm(`Winner: ${winner}\n\nClick OK to restart the game.`);
         if (confirmation) {
-          // Reiniciar o jogo
+          
           resetGame();
         }
       }, 500);
@@ -105,20 +109,22 @@ function checkWinner(player, row, col) {
 }
 
 function resetGame() {
-  gameOver = false; // Reinicia o estado do jogo
-  board.forEach((row) => row.fill(null)); // Limpa o tabuleiro
+  gameOver = false; 
+  board.forEach((row) => row.fill(null)); 
   boxes.forEach((box) => {
-    box.innerText = ""; // Limpa o conteúdo das caixas
+    box.innerText = ""; 
     box.classList.add("box");
     box.classList.remove("boxClear");
+    
   });
-  // Limpa os inputs e o turnPlayer
+  
   document.getElementById("player1").value = "";
   document.getElementById("player2").value = "";
   turnPlayer.innerText = "";
-  startGame(); // Inicia um novo jogo
+ startGame()
+ 
 }
 
 button.addEventListener("click", startGame);
 
-startGame();
+
