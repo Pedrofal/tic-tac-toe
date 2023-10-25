@@ -21,10 +21,7 @@ function isGameOver() {
 function startGame() {
   player1 = document.getElementById("player1").value;
   player2 = document.getElementById("player2").value;
-  if (player1.trim() === "" || player2.trim() === "") {
-    alert("Please enter the names of both players before starting the game.");
-    return;
-  }
+ 
   currentPlayer = player1;
 
   boxes.forEach((box, index) => {
@@ -37,6 +34,10 @@ function startGame() {
 function mark(index) {
   if (isGameOver()) {
     return; 
+  }
+  if (player1.trim() === "" || player2.trim() === "") {
+    alert("Please enter the names of both players before starting the game.");
+    return;
   }
 
   const box = boxes[index];
