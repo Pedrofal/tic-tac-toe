@@ -22,6 +22,11 @@ function startGame() {
   player1 = document.getElementById("player1").value;
   player2 = document.getElementById("player2").value;
  
+  if (player1.trim() === "" || player2.trim() === "") {
+    alert("Please enter the names of both players before starting the game.");
+    return;
+  }
+
   currentPlayer = player1;
 
   boxes.forEach((box, index) => {
@@ -53,9 +58,7 @@ function mark(index) {
     board[row][col] = currentPlayer;
 
     if (checkWinner(currentPlayer, row, col)) {
-      
       turnPlayer.innerText = `Winner: ${currentPlayer}`;
-      
       setTimeout(() => {
         gameOver = true; 
         boxes.forEach((box, index) => {
@@ -65,7 +68,15 @@ function mark(index) {
         const winner = currentPlayer;
         const confirmation = window.confirm(`Winner: ${winner}\n\nClick OK to restart the game.`);
         if (confirmation) {
-          
+          resetGame();
+        }
+      }, 500);
+    } else if (board.flat().every(cell => cell !== null)) {
+      turnPlayer.innerText = "It's a tie!";
+      setTimeout(() => {
+        gameOver = true;
+        const confirmation = window.confirm("It's a tie!\n\nClick OK to restart the game.");
+        if (confirmation) {
           resetGame();
         }
       }, 500);
@@ -116,16 +127,15 @@ function resetGame() {
     box.innerText = ""; 
     box.classList.add("box");
     box.classList.remove("boxClear");
-    
   });
-  
-  document.getElementById("player1").value = null
-  document.getElementById("player2").value = null
+
+  player1 = null;
+  player2 = null;
+  currentPlayer = null;
+
+  document.getElementById("player1").value = "";
+  document.getElementById("player2").value = "";
   turnPlayer.innerText = "";
- startGame()
- 
 }
 
 button.addEventListener("click", startGame);
-
-
